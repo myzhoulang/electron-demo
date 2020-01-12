@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print</title>
+
+    <link rel="stylesheet" href="./node_modules/pdfjs-dist/web/pdf_viewer.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            perspective: 800px;
+            -webkit-app-region: drag;
+            /* -webkit-user-select: none; */
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"],
+        input[type="text"],
+        button,
+        textarea {
+            -webkit-app-region: no-drag;
+        }
+
+        .shadow {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        #box {
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            -webkit-transition: -webkit-transform .6s ease-in-out;
+            transition: transform .6s ease-in-out;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            border-radius: 4px;
+        }
+        #print{ display: flex; height: 100%;}
+        #content{ flex: 1; background-color: #ccc; overflow-x: hidden; }
+        #setting{ width: 300px;}
+        .action .print{ 
+            background-color: rgb(77, 144, 254);
+            background-image: linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
+            border: 1px solid rgb(48, 121, 237);
+            color: #fff;
+            text-shadow: 0 1px rgba(0,0,0,0.1); 
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="print">
+            <div id="content">
+                <div id="viewer" class="pdfViewer"></div>
+            </div>
+            <div id="setting">
+
+                <div class="action">
+                    <button class="print">打印</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./print.js"></script>
+</body>
+
+</html>
