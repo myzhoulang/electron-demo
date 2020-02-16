@@ -1,6 +1,10 @@
-const { ipcRenderer } = require('electron')
-const print = document.getElementById('print')
+const { ipcRenderer } = require('electron');
+const fs = require('fs');
+const print = document.getElementById('print');
 
 print.addEventListener('click', () => {
-    ipcRenderer.send('show-print')
-}, false)
+    console.log('render => #print-click');
+    const html = fs.readFileSync('./html.html', 'utf-8')
+    ipcRenderer.send('print-show', html);
+
+}, false);

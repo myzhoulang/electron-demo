@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Print</title>
+
+	<link rel="stylesheet" href="../node_modules/pdfjs-dist/web/pdf_viewer.css">
+
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+		}
+
+		body {
+			perspective: 800px;
+			-webkit-app-region: drag;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		input[type="text"],
+		button,
+		textarea {
+			-webkit-app-region: no-drag;
+		}
+
+		#box {
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			-webkit-transition: -webkit-transform .6s ease-in-out;
+			transition: transform .6s ease-in-out;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			border-radius: 4px;
+		}
+		#print{ display: flex; height: 100%;}
+		#content{ flex: 1; background-color: #d5d5d9; overflow-x: hidden; -webkit-user-select: text; }
+		#setting{ width: 300px;}
+		.action .print{
+			background-color: rgb(77, 144, 254);
+			background-image: linear-gradient(to bottom, rgb(77, 144, 254), rgb(71, 135, 237));
+			border: 1px solid rgb(48, 121, 237);
+			color: #fff;
+			text-shadow: 0 1px rgba(0,0,0,0.1);
+		}
+	</style>
+</head>
+
+<body>
+<div id="box">
+	<div id="print">
+		<div id="content">
+			<div id="viewer" class="pdfViewer"></div>
+		</div>
+		<div id="setting">
+			<div>
+				<label for="landscape">布局</label>
+				<select id="landscape">
+					<option value="false">纵向</option>
+					<option value="true">横向</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="pageSize">纸张尺寸</label>
+				<select id="pageSize">
+					<option value="A4">A4</option>
+					<option value="A3">A3</option>
+					<option value="A5">A5</option>
+					<option value="Legal">法律专用纸</option>
+					<option value="Letter">信纸</option>
+					<option value="Tabloid">Tabloid</option>
+				</select>
+			</div>
+
+
+			<div>
+				<label for="marginsType">边距</label>
+				<select id="marginsType">
+					<option value="0">默认</option>
+					<option value="1">无</option>
+					<option value="2">最小值</option>
+				</select>
+			</div>
+
+
+			<div>
+				<label for="printBackground">选项
+					<input type="checkbox" id="printBackground" checked>背景图形
+				</label>
+			</div>
+
+			<div class="action">
+				<button class="print">打印</button>
+				<button class="cancel">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="print.js"></script>
+</body>
+
+</html>

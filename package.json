@@ -4,7 +4,7 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --watch main.js --exec \"electron .\""
+    "start": "nodemon --watch * --exec \"electron .\""
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,10 +17,12 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
+    "devtron": "^1.4.0",
     "electron": "^7.1.7",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "pdfjs-dist": "^2.2.228"
+    "pdfjs-dist": "^2.2.228",
+    "puppeteer-core": "^2.1.1"
   }
 }
